@@ -2,6 +2,7 @@
 * {
    margin: 0;
    padding: 0;
+   box-sizing: border-box; /* Legg til denne linjen for å inkludere polstring og kant i elementets bredde og høyde */
 }
 
 .main {
@@ -9,47 +10,46 @@
    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(moen_bakgrunn.jpg);
    background-position: center;
    background-size: cover;
-   height: 109vh;
+   min-height: 100vh; /* Endre høyden til min-height for å sikre at innholdet fyller hele skjermen */
 }
 
 .navbar {
    width: 100%;
    height: 75px;
-   position: fixed; /* For å fikse menylinjen øverst på siden */
-   top: 0; /* Plasserer menylinjen på toppen av siden */
-   left: 0; /* Plasserer menylinjen til venstre */
+   position: fixed;
+   top: 0;
+   left: 0;
    display: flex;
-   justify-content: center; /* Sentrer elementene horisontalt */
+   justify-content: center;
    align-items: center;
-   background-color: rgba(14, 12, 12, 0.5); /* Legger til en bakgrunnsfarge for bedre synlighet */
-   z-index: 1000; /* Sørger for at menylinjen er øverst på z-aksen */
+   background-color: rgba(14, 12, 12, 0.5);
+   z-index: 1000;
 }
-
 
 .icon {
    width: 250px;
    height: 70px;
 }
 
-.icon img { /* Stil for bilde innenfor .icon */
+.icon img {
    width: 100%;
    height: auto;
 }
 
 .menu {
-   flex: 1; /* La menyen ta resten av tilgjengelig plass i .navbar */
-   display: flex; /* Bruk flex-boksen for å plassere menyelementene */
-   justify-content: center; /* Sentrer elementene horisontalt */
+   flex: 1;
+   display: flex;
+   justify-content: center;
 }
 
 ul {
    list-style: none;
-   display: flex; /* Bruk flex-boksen for å plassere menyelementene */
+   display: flex;
 }
 
 ul li {
-   margin-left: 25px; /* Legg til litt mellomrom mellom menyelementene */
-   font-size: 25px;
+   margin-left: 25px;
+   font-size: 20px; /* Endre størrelsen på menyelementene for bedre lesbarhet på mobile enheter */
 }
 
 ul li a {
@@ -60,53 +60,42 @@ ul li a {
    transition: 0.4s ease-in-out;
 }
 
-ul li a:hover{
+ul li a:hover {
    color: #1a8fd3;
-
 }
+
 .footer {
-   text-align: center; /* Sentrer teksten */
-   margin-top: 20px; /* Gi litt avstand fra innholdet over */
-   color: #531429; /* farge copyright */
+   text-align: center;
+   margin-top: 20px;
+   color: #531429;
 }
 
 .footer hr {
-   border: none; /* Fjern grensen fra linjen */
-   border-top: 1px solid #cf111b; /* Legg til en enkel horisontal linje */
-   width: 100%; /* Angi bredden til linjen */
+   border: none;
+   border-top: 1px solid #cf111b;
+   width: 100%;
 }
+
 .content {
-   margin: 75px auto 50px auto; /* Øk avstanden over og under innholdet */
-   text-align: center; /* Sentrer teksten horisontalt */
-   display: flex; /* Bruk flex-boksen for å sentrere vertikalt */
-   flex-direction: column; /* Plasser elementene vertikalt */
-   justify-content: center; /* Sentrer elementene vertikalt */
-   align-items: center; /* Sentrer elementene horisontalt */
+   margin: 75px auto 50px auto;
+   text-align: center;
+   padding: 0 20px; /* Legg til padding for bedre lesbarhet og plassering av innholdet */
 }
-        /* Overskrift forside */
+
 .content h1 {
-   color: #bac3e6; /* Endre tekstfargen for overskriften */
-   margin-top: 10px; /* Juster avstanden mellom bildet og teksten etter behov */
-   margin-left: 630px; /* Flytt teksten til høyre */
-   font-size: 45px; /* Endre størrelsen på teksten */
-   line-height: 1.0; /* Reduser linjeavstanden for mer kompakt tekst *//
+   color: #bac3e6;
+   font-size: 30px; /* Endre størrelsen på overskriften for bedre lesbarhet på mobile enheter */
+   margin-bottom: 20px; /* Legg til litt avstand under overskriften */
 }
-      /* forside tekst */
+
 .content p {
-   font-size: 16px; /* Endre størrelsen på teksten */
-   line-height: 1.3; /* Reduser linjehøyden for mer kompakt tekst */
-   margin-bottom: 15px; /* Reduser avstanden mellom avsnittene */
+   font-size: 16px;
+   line-height: 1.5; /* Øk linjeavstanden for bedre lesbarhet */
+   margin-bottom: 15px;
 }
+
 .text-content {
-   margin-top: 410px; /* Juster avstanden mellom bildet og teksten etter behov */
-   margin-left: 630px; /* Flytt teksten til høyre */
-   font-size: 30px; /* Endre størrelsen på teksten */
-   line-height: 1.0; /* Reduser linjeavstanden for mer kompakt tekst */
-   color: aqua; /* Endre tekstfargen */
+   font-size: 18px; /* Juster teksten for bedre lesbarhet på mobile enheter */
+   line-height: 1.5;
+   color: aqua;
 }
-
-
-
-
-
-

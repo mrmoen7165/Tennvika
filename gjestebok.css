@@ -1,0 +1,153 @@
+/* Reset CSS */
+/* Generelle stiler */
+* {
+    margin: 0;
+    padding: 0;
+}
+ 
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(moen_bajas.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    height: 75px;
+    position: fixed; /* For å fikse menylinjen øverst på siden */
+    top: 0; /* Plasserer menylinjen på toppen av siden */
+    left: 0; /* Plasserer menylinjen til venstre */
+    display: flex;
+    justify-content: center; /* Sentrer elementene horisontalt */
+    align-items: center;
+    background-color: rgba(14, 12, 12, 0.5); /* Legger til en bakgrunnsfarge for bedre synlighet */
+    z-index: 1000; /* Sørger for at menylinjen er øverst på z-aksen */
+}
+ 
+.icon {
+    width: 250px;
+    height: 70px;
+}
+ 
+.icon img { /* Stil for bilde innenfor .icon */
+    width: 100%;
+    height: auto;
+}
+ 
+.menu {
+    flex: 1; /* La menyen ta resten av tilgjengelig plass i .navbar */
+    display: flex; /* Bruk flex-boksen for å plassere menyelementene */
+    justify-content: center; /* Sentrer elementene horisontalt */
+}
+ 
+ul {
+    list-style: none;
+    display: flex; /* Bruk flex-boksen for å plassere menyelementene */
+}
+ 
+ul li {
+    margin-left: 25px; /* Legg til litt mellomrom mellom menyelementene */
+    font-size: 25px;
+}
+ 
+ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+ 
+ul li a:hover{
+    color: #1a8fd3;
+}
+
+/* Gjestebokmodul */
+.container-box {
+    width: 30%; /* Juster bredden etter behov */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Legg til en gjennomsiktig hvit bakgrunn */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Sørg for at boksen er foran bakgrunnsbildet */
+    position: absolute; /* Plasserer boksen relativt til nærmeste posisjonerte (ikke statiske) foreldrelement */
+    top: 50%; /* Plasser boksen vertikalt sentrert */
+    left: 50%; /* Plasser boksen horisontalt sentrert */
+    transform: translate(-50%, -50%); /* Sentrer boksen nøyaktig */
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #245470; /* Mørk blå farge for overskriften */
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #245470; /* Mørk blå farge for etiketter */
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    width: calc(100% - 22px); /* Tar hensyn til padding og border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #245470; /* Mørk blå knapp */
+    color: #fff;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #1c3a4a; /* Mørkere blå ved hover */
+}
+
+/* Stjerner for oppholdsvurdering og servicevurdering */
+.rating {
+    display: flex;
+    flex-direction: row-reverse; /* Endrer retningen slik at 1 er til venstre og 5 til høyre */
+    justify-content: flex-start;
+    align-items: center; /* Justerer stjernene vertikalt */
+    color: #a56c6c;
+    margin-right: 20px; /* Flytter ratingen mot venstre */
+}
+
+.rating > label {
+    position: relative;
+    width: 30px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px; /* Flytter stjernene mot venstre */
+}
+
+.rating > label:before {
+    content: "\2605"; /* Fysisk stjerne-symbol */
+}
+
+.rating > input:checked ~ label:before,
+.rating > label:hover ~ input:checked ~ label:before {
+    color: #ffca08; /* Gyllen farge for valgte stjerner */
+}
+

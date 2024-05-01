@@ -48,21 +48,22 @@
         <div class="content">
             <h1>Om oss</h1>
             <div class="text-content">
-                <p>I hjertet av Trøndelag, langs de maleriske breddene av Trondheimsfjorden, ligger Tennvika Hytte & Marina, 
-                <p>et synlig bevis på utholdenhet, dedikasjon og drømmer som ble realisert. Historien om Tennvika begynner tilbake i 2005, 
-                <p>Da Agnes Elise og Torleif Agnar Moen så potensialet i den bortgjemte kystlinjen og bestemte seg for å skape noe bemerkelsesverdig.
-
-                <p> Med en beskjeden traktor og en liten henger begynte Torleif å forme landskapet, drømmende om en dag å se en blomstrende havn og hytteområde. 
-                <p>Timene forsvant i den solfylte kystluften mens han sakte, men sikkert, bygget opp moloen og havnebassenget med hvert lass stein og hver sving av spaden. 
-                <P>Flere har vert med på dugnad for å hjelpe til med utbyggingen, og fellesskapets innsats var uvurderlig.
-                <p>Stig Rune, sønn av Agnes og Torleif, ble raskt en nøkkelspiller i prosjektet. Med ansvar for alt fra hyttetomter til sprengning, var Stig Rune med på realiseringen av Tennvikas visjon.
-                <p>Underveis etablerte de til og med et eget steinbrudd for å sikre konstant tilgang på stein og grus.
-                <p>Mens moloen og havnebassenget tok form, begynte Agnes og Torleif å se fremover til å tilby overnatting for besøkende som ønsket å utforske skjønnheten i Trondheimsfjorden. 
-                <p>Deres første investering kom i form av hytten Lyngmo, en koselig tilfluktssted som skulle bli starten på Tennvika Hytte & Marina-eventyret. Senere, i 2012, ble Bajas bygget, og virksomheten fortsatte å vokse i takt med interessen for dette naturskjønne paradiset.
-                <p>I dag står Tennvika Hytte & Marina som et imponerende monument over fellesskapets innsats og drømmen om å skape noe ekstraordinært. 
-                <p>Stig Rune har blitt del eier og ser med spenning fremover mot fremtiden. Arbeidet med å oppnå riktig dybde i havnebassenget pågår, og flere hytter og flytebrygger er planlagt å bli bygget for å imøtekomme den økende etterspørselen.
-                <p>Tennvika Hytte & Marina er ikke bare et reisemål, det er et symbol på håp, fellesskap og den uendelige skjønnheten i naturen.
-                <p>Alle gjester, fra fjern og nær, ønskes velkommen med åpne armer og inviteres til å oppleve den magiske atmosfæren og gjestfriheten som Tennvika har å tilby.
+                <p id="intro">I hjertet av Trøndelag, langs de maleriske breddene av Trondheimsfjorden, ligger Tennvika Hytte & Marina,</p>
+                <p id="historie">et synlig bevis på utholdenhet, dedikasjon og drømmer som ble realisert. Historien om Tennvika begynner tilbake i 2005,</p>
+                <p id="potensial">Da Agnes Elise og Torleif Agnar Moen så potensialet i den bortgjemte kystlinjen og bestemte seg for å skape noe bemerkelsesverdig.</p>
+                
+                <p id="traktor">Med en beskjeden traktor og en liten henger begynte Torleif å forme landskapet, drømmende om en dag å se en blomstrende havn og hytteområde.</p>
+                <p id="timene">Timene forsvant i den solfylte kystluften mens han sakte, men sikkert, bygget opp moloen og havnebassenget med hvert lass stein og hver sving av spaden.</p>
+                <p id="dugnad">Flere har vert med på dugnad for å hjelpe til med utbyggingen, og fellesskapets innsats var uvurderlig.</p>
+                <p id="stig_rune">Stig Rune, sønn av Agnes og Torleif, ble raskt en nøkkelspiller i prosjektet. Med ansvar for alt fra hyttetomter til sprengning, var Stig Rune med på realiseringen av Tennvikas visjon.</p>
+                <p id="steinbrudd">Underveis etablerte de til og med et eget steinbrudd for å sikre konstant tilgang på stein og grus.</p>
+                <p id="overnatting">Mens moloen og havnebassenget tok form, begynte Agnes og Torleif å se fremover til å tilby overnatting for besøkende som ønsket å utforske skjønnheten i Trondheimsfjorden.</p>
+                <p id="investering">Deres første investering kom i form av hytten Lyngmo, en koselig tilfluktssted som skulle bli starten på Tennvika Hytte & Marina-eventyret. Senere, i 2012, ble Bajas bygget, og virksomheten fortsatte å vokse i takt med interessen for dette naturskjønne paradiset.</p>
+                <p id="imponerende">I dag står Tennvika Hytte & Marina som et imponerende monument over fellesskapets innsats og drømmen om å skape noe ekstraordinært.</p>
+                <p id="fremtiden">Stig Rune har blitt del eier og ser med spenning fremover mot fremtiden. Arbeidet med å oppnå riktig dybde i havnebassenget pågår, og flere hytter og flytebrygger er planlagt å bli bygget for å imøtekomme den økende etterspørselen.</p>
+                <p id="symbol">Tennvika Hytte & Marina er ikke bare et reisemål, det er et symbol på håp, fellesskap og den uendelige skjønnheten i naturen.</p>
+                <p id="velkommen">Alle gjester, fra fjern og nær, ønskes velkommen med åpne armer og inviteres til å oppleve den magiske atmosfæren og gjestfriheten som Tennvika har å tilby.</p>
+                
             </div>
         </div>
     </div>
@@ -77,17 +78,31 @@
         function changeLanguage() {
             var selectedLanguage = document.getElementById("language-select").value;
             fetch('translations/' + selectedLanguage + '/translations.json')
-                .then(response => response.json())
-                .then(data => {
-                    // Endre teksten på nettsiden basert på den valgte oversettelsen
-                    document.getElementById("home").innerText = data.home;
-                    document.getElementById("about_us").innerText = data.about_us;
-                    document.getElementById("storfosna").innerText = data.storfosna;
-                    document.getElementById("bajas").innerText = data.bajas;
-                    document.getElementById("photo_gallery").innerText = data.photo_gallery;
-                    document.getElementById("guestbook").innerText = data.guestbook;
-                    document.getElementById("copyright").innerText = data.copyright;
-                });
+    .then(response => response.json())
+    .then(data => {
+        // Endre teksten på nettsiden basert på den valgte oversettelsen
+        document.getElementById("home").innerText = data.home;
+        document.getElementById("about_us").innerText = data.about_us;
+        document.getElementById("storfosna").innerText = data.storfosna;
+        document.getElementById("bajas").innerText = data.bajas;
+        document.getElementById("photo_gallery").innerText = data.photo_gallery;
+        document.getElementById("guestbook").innerText = data.guestbook;
+        document.getElementById("intro").innerText = data.intro;
+        document.getElementById("historie").innerText = data.historie;
+        document.getElementById("potensial").innerText = data.potensial;
+        document.getElementById("traktor").innerText = data.traktor;
+        document.getElementById("timene").innerText = data.timene;
+        document.getElementById("dugnad").innerText = data.dugnad;
+        document.getElementById("stig_rune").innerText = data.stig_rune;
+        document.getElementById("steinbrudd").innerText = data.steinbrudd;
+        document.getElementById("overnatting").innerText = data.overnatting;
+        document.getElementById("investering").innerText = data.investering;
+        document.getElementById("imponerende").innerText = data.imponerende;
+        document.getElementById("fremtiden").innerText = data.fremtiden;
+        document.getElementById("symbol").innerText = data.symbol;
+        document.getElementById("velkommen").innerText = data.velkommen;
+    });
+
         }
 
         // Lytter på endringer i rullegardinmenyen

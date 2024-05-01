@@ -6,16 +6,7 @@
     <title>Storfosna</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* CSS for å plassere språkmenyen til høyre over bakgrunnsbildet */
-        .background-image {
-            position: relative;
-            background-image: url('background.jpg'); /* Legg til stien til ditt bakgrunnsbilde */
-            background-size: cover;
-            background-position: center;
-            height: 100vh; /* Juster høyden etter behov */
-            overflow: hidden;
-        }
-
+        /* CSS for å plassere språkmenyen til høyre */
         .language-menu {
             position: absolute;
             top: 75px;
@@ -28,48 +19,89 @@
     </style>
 </head>
 <body>
+    <div class="language-menu">
+        <label for="language-select">Velg språk:</label>
+        <select id="language-select">
+            <option value="no">Norsk</option>
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
 
-        <div class="main">
-            <div class="navbar">
-                <div class="icon">
-                    <img src="moen_logo.png" alt="Moen Logo">
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="index.html">Hjemme</a></li>
-                        <li><a href="om-oss.html">Om oss</a></li>
-                        <li><a href="storfosna.html">Storfosna</a></li>
-                        <li><a href="bajas.html">Bajas</a></li>                    
-                        <li><a href="#">Bildegalleri</a></li>
-                        <li><a href="gjestebok.html">gjestebok</a></li>  
-                    </ul>
-                </div>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <img src="moen_logo.png" alt="Moen Logo">
             </div>
-            
-            <div class="content">
-                <h1>Storfosna</h1>
-                <div class="text-content">
-                    <p>Storfosna er en sjarmerende øy som ligger idyllisk til i Ørland kommune, langs Trondheimsfjorden.
-                        <p>i den vakre regionen Trøndelag, Norge. Med sin naturskjønne beliggenhet og fredelige atmosfære. 
-                        <p>Storfosna et ettertraktet reisemål for de som søker en avslappende ferie ved sjøen.
-                        <p>Øyas kystlinje er preget av dramatiske klipper, bortgjemte viker og lange strender, 
-                        <p>som alle gir besøkende en unik mulighet til å utforske og oppleve det beste av norsk natur. 
-                        <p>Med krystallklart vann og en rik maritim arv, tiltrekker Storfosna seg også fiskeentusiaster og vannsportentusiaster fra fjern og nær.
-                        <p>Storfosna er også kjent for sin rike historie og kultur, med spor etter bosetninger som går tilbake tusenvis av år. Utforsk historiske steder, 
-                        <P>besøk lokale og lær mer om øyas fascinerende fortid mens du nyter den vakre naturen rundt deg.
-                        <p>I tillegg til å være et fantastisk reisemål for avslapning og utforsking, tilbyr Storfosna også overnattingsmuligheter hos Tennvika Hytte & Marina, 
-                        <p>samt en varm velkomst fra de vennlige lokalbefolkningen.
-                        <p>Enten du søker eventyr og aktiviteter eller ønsker å slappe av og nyte roen i naturen, har Storfosna noe å tilby for enhver smak og interesse,
-                        <p>og er et ideelt reisemål for en minneverdig opplevelse i hjertet av Trøndelag.    
-                        <p>    
-                </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html" id="home">Hjemme</a></li>
+                    <li><a href="om-oss.html" id="about_us">Om oss</a></li>
+                    <li><a href="storfosna.html" id="storfosna">Storfosna</a></li>
+                    <li><a href="bajas.html" id="bajas">Bajas</a></li>                    
+                    <li><a href="#" id="photo_gallery">Bildegalleri</a></li>
+                    <li><a href="gjestebok.html" id="guestbook">Gjestebok</a></li>  
+                </ul>
             </div>
         </div>
-
-        <div class="footer">
-            <hr>
-            <p>&copy; Copyright Utvikler Eirik Margido Moen</p>
+        
+        <div class="content">
+            <h1 id="storfosna_header">Storfosna</h1>
+            <div class="text-content">
+                <p id="storfosna_paragraph1">Storfosna er en sjarmerende øy som ligger idyllisk til i Ørland kommune, langs Trondheimsfjorden.</p>
+                <p id="storfosna_paragraph2">I den vakre regionen Trøndelag, Norge. Med sin naturskjønne beliggenhet og fredelige atmosfære.</p>
+                <p id="storfosna_paragraph3">Storfosna er et ettertraktet reisemål for de som søker en avslappende ferie ved sjøen.</p>
+                <p id="storfosna_paragraph4">Øyas kystlinje er preget av dramatiske klipper, bortgjemte viker og lange strender.</p>
+                <p id="storfosna_paragraph5">Som alle gir besøkende en unik mulighet til å utforske og oppleve det beste av norsk natur.</p>
+                <p id="storfosna_paragraph6">Med krystallklart vann og en rik maritim arv, tiltrekker Storfosna seg også fiskeentusiaster og vannsportentusiaster fra fjern og nær.</p>
+                <p id="storfosna_paragraph7">Storfosna er også kjent for sin rike historie og kultur, med spor etter bosetninger som går tilbake tusenvis av år. Utforsk historiske steder.</p>
+                <p id="storfosna_paragraph8">Besøk lokale og lær mer om øyas fascinerende fortid mens du nyter den vakre naturen rundt deg.</p>
+                <p id="storfosna_paragraph9">I tillegg til å være et fantastisk reisemål for avslapning og utforsking, tilbyr Storfosna også overnattingsmuligheter hos Tennvika Hytte & Marina,</p>
+                <p id="storfosna_paragraph10">Samt en varm velkomst fra de vennlige lokalbefolkningen.</p>
+                <p id="storfosna_paragraph11">Enten du søker eventyr og aktiviteter eller ønsker å slappe av og nyte roen i naturen, har Storfosna noe å tilby for enhver smak og interesse,</p>
+                <p id="storfosna_paragraph12">og er et ideelt reisemål for en minneverdig opplevelse i hjertet av Trøndelag.</p>                
+            </div>
         </div>
     </div>
+
+    <div class="footer">
+        <hr>
+        <p>&copy; Copyright Utvikler Eirik Margido Moen</p>
+    </div>
+
+    <script>
+        // Funksjon for å endre språket basert på brukerens valg
+        function changeLanguage() {
+            var selectedLanguage = document.getElementById("language-select").value;
+            fetch('translations/' + selectedLanguage + '/translations.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Endre teksten på nettsiden basert på den valgte oversettelsen
+                    document.getElementById("home").innerText = data.home;
+                    document.getElementById("about_us").innerText = data.about_us;
+                    document.getElementById("storfosna").innerText = data.storfosna;
+                    document.getElementById("bajas").innerText = data.bajas;
+                    document.getElementById("photo_gallery").innerText = data.photo_gallery;
+                    document.getElementById("guestbook").innerText = data.guestbook;
+                    document.getElementById("storfosna_paragraph1").innerText =  data.storfosna_paragraph1;
+                    document.getElementById("storfosna_paragraph2").innerText =  data.storfosna_paragraph2;
+                    document.getElementById("storfosna_paragraph3").innerText =  data.storfosna_paragraph3;
+                    document.getElementById("storfosna_paragraph4").innerText =  data.storfosna_paragraph4;
+                    document.getElementById("storfosna_paragraph5").innerText =  data.storfosna_paragraph5;
+                    document.getElementById("storfosna_paragraph6").innerText =  data.storfosna_paragraph6;
+                    document.getElementById("storfosna_paragraph7").innerText =  data.storfosna_paragraph7;
+                    document.getElementById("storfosna_paragraph8").innerText =  data.storfosna_paragraph8;
+                    document.getElementById("storfosna_paragraph9").innerText =  data.storfosna_paragraph9;
+                    document.getElementById("storfosna_paragraph10").innerText = data.storfosna_paragraph10;
+                    document.getElementById("storfosna_paragraph11").innerText = data.storfosna_paragraph11;
+                });
+        }
+
+        // Lytter på endringer i rullegardinmenyen
+        document.getElementById("language-select").addEventListener("change", changeLanguage);
+
+        // Initier språkvalget ved lasting av siden
+        changeLanguage();
+    </script>
 </body>
 </html>

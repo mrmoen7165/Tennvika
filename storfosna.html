@@ -35,12 +35,13 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="index.html" id="home">Hjemme</a></li>
+                    <li><a href="index.html" id="home">Hjem</a></li>
                     <li><a href="om-oss.html" id="about_us">Om oss</a></li>
                     <li><a href="storfosna.html" id="storfosna">Storfosna</a></li>
-                    <li><a href="bajas.html" id="bajas">Bajas</a></li>                    
+                    <li><a href="bajas.html" id="bajas">Bajas</a></li> 
+                    <li><a href="lyngmo.html" id="lyngmo">Lyngmo</a></li>                   
                     <li><a href="#" id="photo_gallery">Bildegalleri</a></li>
-                    <li><a href="gjestebok.html" id="guestbook">Gjestebok</a></li>  
+                    <li><a href="gjestebok.html" id="guestbook">Gjestebok</a></li>   
                 </ul>
             </div>
         </div>
@@ -70,38 +71,42 @@
     </div>
 
     <script>
-        // Funksjon for å endre språket basert på brukerens valg
+        // Function to change language based on user selection
         function changeLanguage() {
             var selectedLanguage = document.getElementById("language-select").value;
             fetch('translations/' + selectedLanguage + '/translations.json')
                 .then(response => response.json())
                 .then(data => {
-                    // Endre teksten på nettsiden basert på den valgte oversettelsen
+                    // Update the text on the website based on the selected translation
                     document.getElementById("home").innerText = data.home;
                     document.getElementById("about_us").innerText = data.about_us;
                     document.getElementById("storfosna").innerText = data.storfosna;
                     document.getElementById("bajas").innerText = data.bajas;
                     document.getElementById("photo_gallery").innerText = data.photo_gallery;
                     document.getElementById("guestbook").innerText = data.guestbook;
-                    document.getElementById("storfosna_paragraph1").innerText =  data.storfosna_paragraph1;
-                    document.getElementById("storfosna_paragraph2").innerText =  data.storfosna_paragraph2;
-                    document.getElementById("storfosna_paragraph3").innerText =  data.storfosna_paragraph3;
-                    document.getElementById("storfosna_paragraph4").innerText =  data.storfosna_paragraph4;
-                    document.getElementById("storfosna_paragraph5").innerText =  data.storfosna_paragraph5;
-                    document.getElementById("storfosna_paragraph6").innerText =  data.storfosna_paragraph6;
-                    document.getElementById("storfosna_paragraph7").innerText =  data.storfosna_paragraph7;
-                    document.getElementById("storfosna_paragraph8").innerText =  data.storfosna_paragraph8;
-                    document.getElementById("storfosna_paragraph9").innerText =  data.storfosna_paragraph9;
+                    document.getElementById("storfosna_header").innerText = data.storfosna;
+                    document.getElementById("storfosna_paragraph1").innerText = data.storfosna_paragraph1;
+                    document.getElementById("storfosna_paragraph2").innerText = data.storfosna_paragraph2;
+                    document.getElementById("storfosna_paragraph3").innerText = data.storfosna_paragraph3;
+                    document.getElementById("storfosna_paragraph4").innerText = data.storfosna_paragraph4;
+                    document.getElementById("storfosna_paragraph5").innerText = data.storfosna_paragraph5;
+                    document.getElementById("storfosna_paragraph6").innerText = data.storfosna_paragraph6;
+                    document.getElementById("storfosna_paragraph7").innerText = data.storfosna_paragraph7;
+                    document.getElementById("storfosna_paragraph8").innerText = data.storfosna_paragraph8;
+                    document.getElementById("storfosna_paragraph9").innerText = data.storfosna_paragraph9;
                     document.getElementById("storfosna_paragraph10").innerText = data.storfosna_paragraph10;
                     document.getElementById("storfosna_paragraph11").innerText = data.storfosna_paragraph11;
+                    document.getElementById("storfosna_paragraph12").innerText = data.storfosna_paragraph12;
+                    document.getElementById("copyright").innerText = data.copyright;
                 });
         }
-
-        // Lytter på endringer i rullegardinmenyen
+    
+        // Listen for changes in the dropdown menu
         document.getElementById("language-select").addEventListener("change", changeLanguage);
-
-        // Initier språkvalget ved lasting av siden
+    
+        // Initialize language selection on page load
         changeLanguage();
     </script>
+    
 </body>
 </html>

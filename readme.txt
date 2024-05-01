@@ -1,7 +1,7 @@
 
 Velkommen til Tennvika Hytte & Marina
 Om Nettsiden
-Dette nettstedet eies og driftes av Eirik Margido Moen. Formålet med nettstedet er å gi informasjon om Tennvika Hytte & Marina og tilby besøkende en oversikt over tjenester og fasiliteter tilgjengelig på stedet.
+Dette nettstedet eies og driftes av Eirik Margido Moen. Formålet med nettstedet er å gi informasjon om Tennvika Hytte & Marina og tilby besøkende en oversikt over tjenester tilgjengelig på stedet.
 
 Ansvar og Opphavsrett
 Alt innhold, inkludert tekst, bilder, videoer og grafikk, tilhører Eirik Margido Moen med mindre annet er oppgitt. All bruk av innholdet på dette nettstedet må skje i samsvar med gjeldende lover og regler om opphavsrett.

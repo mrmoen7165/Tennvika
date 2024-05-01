@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om oss</title>
     <link rel="stylesheet" href="om-oss.css">
+    <style>
+        /* CSS for å plassere språkmenyen til høyre */
+        .language-menu {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            z-index: 1; /* Plasser språkmenyen over bakgrunnsbildet */
+            background-color: rgba(255, 255, 255, 0.5); /* Gjennomsiktig bakgrunn for bedre lesbarhet */
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+    <div class="language-menu">
+        <label for="language-select">Velg språk:</label>
+        <select id="language-select">
+            <option value="no">Norsk</option>
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+
     <div class="main">
         <div class="navbar">
             <div class="icon">
@@ -14,16 +35,16 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="index.html">Hjemme</a></li>
-                    <li><a href="om-oss.html">Om oss</a></li>
-                    <li><a href="storfosna.html">Storfosna</a></li>
-                    <li><a href="bajas.html">Bajas</a></li>                    
-                    <li><a href="#">Bildegalleri</a></li>
-                    <li><a href="gjestebok.html">gjestebok</a></li>  
+                    <li><a href="index.html" id="home">Hjem</a></li>
+                    <li><a href="om-oss.html" id="about_us">Om oss</a></li>
+                    <li><a href="storfosna.html" id="storfosna">Storfosna</a></li>
+                    <li><a href="bajas.html" id="bajas">Bajas</a></li>                    
+                    <li><a href="#" id="photo_gallery">Bildegalleri</a></li>
+                    <li><a href="gjestebok.html" id="guestbook">Gjestebok</a></li>  
                 </ul>
             </div>
         </div>
-        
+
         <div class="content">
             <h1>Om oss</h1>
             <div class="text-content">
@@ -42,15 +63,38 @@
                 <p>Stig Rune har blitt del eier og ser med spenning fremover mot fremtiden. Arbeidet med å oppnå riktig dybde i havnebassenget pågår, og flere hytter og flytebrygger er planlagt å bli bygget for å imøtekomme den økende etterspørselen.
                 <p>Tennvika Hytte & Marina er ikke bare et reisemål, det er et symbol på håp, fellesskap og den uendelige skjønnheten i naturen.
                 <p>Alle gjester, fra fjern og nær, ønskes velkommen med åpne armer og inviteres til å oppleve den magiske atmosfæren og gjestfriheten som Tennvika har å tilby.
-        </div>
             </div>
         </div>
     </div>
 
     <div class="footer">
         <hr>
-        <p>&copy; Copyright Utvikler Eirik Margido Moen</p>
+        <p id="copyright">&copy; Copyright Utvikler Eirik Margido Moen</p>
     </div>
+
+    <script>
+        // Funksjon for å endre språket basert på brukerens valg
+        function changeLanguage() {
+            var selectedLanguage = document.getElementById("language-select").value;
+            fetch('translations/' + selectedLanguage + '/translations.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Endre teksten på nettsiden basert på den valgte oversettelsen
+                    document.getElementById("home").innerText = data.home;
+                    document.getElementById("about_us").innerText = data.about_us;
+                    document.getElementById("storfosna").innerText = data.storfosna;
+                    document.getElementById("bajas").innerText = data.bajas;
+                    document.getElementById("photo_gallery").innerText = data.photo_gallery;
+                    document.getElementById("guestbook").innerText = data.guestbook;
+                    document.getElementById("copyright").innerText = data.copyright;
+                });
+        }
+
+        // Lytter på endringer i rullegardinmenyen
+        document.getElementById("language-select").addEventListener("change", changeLanguage);
+
+        // Initier språkvalget ved lasting av siden
+        changeLanguage();
+    </script>
 </body>
 </html>
-

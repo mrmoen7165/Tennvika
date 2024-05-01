@@ -1,43 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
-    <title>Website</title>
+    <title>Nettsted</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS for å plassere språkmenyen over bakgrunnsbildet */
+        .background-image {
+            position: relative;
+            background-image: url('background.jpg'); /* Legg til stien til ditt bakgrunnsbilde */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Juster høyden etter behov */
+            overflow: hidden;
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            z-index: 1; /* Plasser språkmenyen over bakgrunnsbildet */
+            background-color: rgba(255, 255, 255, 0.5); /* Gjennomsiktig bakgrunn for bedre lesbarhet */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="main">
-        <div class="navbar">
-            <div class="icon">
-                <img src="moen_logo.png" alt="Moen Logo"> <!-- Behold bildet på samme sted -->
-            </div>
 
-            <div class="menu">
-                <ul>
-                    <li><a href="index.html">Hjemme</a></li>
-                    <li><a href="om-oss.html">Om oss</a></li>
-                    <li><a href="storfosna.html">Storfosna</a></li>
-                    <li><a href="bajas.html">Bajas</a></li>                    
-                    <li><a href="#">Bildegalleri</a></li>
-                    <li><a href="gjestebok.html">gjestebok</a></li>  
-                </ul>
-            </div>
+<!-- Språkvalg meny -->
+<div class="language-menu">
+    <label for="language-select">Velg språk:</label>
+    <select id="language-select">
+        <option value="en">English</option>
+        <option value="no">Norsk</option>
+        <option value="de">Deutsch</option>
+    </select>
+</div>
+
+<!-- Resten av innholdet -->
+<div class="main">
+    <div class="navbar">
+        <div class="icon">
+            <img src="moen_logo.png" alt="Moen Logo"> <!-- Behold bildet på samme sted -->
         </div>
-        
-        <div class="content">
-            <h1>Velkommen til Tennvika Hytte & Marina</h1>
-            <div class="text-content">
-                <p>Storfosna er en vakker øy som byr på fantastisk natur, 
-                <p>sjøutsikt og muligheter for fiske og friluftsliv. Med sin rolige atmosfære og sjarmerende omgivelser er det et ideelt reisemål
-                <p>Tennvika Hytte & Marina tilbyr deg muligheten til å oppleve alt dette og mer. Våre hytter og fasiliteter gir deg den perfekte rammen for en minneverdig ferie.
-                <p> Uansett om du er ute etter en avslappende helg ved sjøen eller et spennende eventyr på vannet, har vi alt du trenger for å gjøre oppholdet ditt uforglemmelig.</p>
-                <p>Kom og opplev Storfosna med oss og la oss være vertskapene dine for din neste ferie!</p>
-            </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" id="home">Hjem</a></li>
+                <li><a href="om-oss.html" id="about_us">Om oss</a></li>
+                <li><a href="storfosna.html" id="storfosna">Storfosna</a></li>
+                <li><a href="bajas.html" id="bajas">Bajas</a></li>                    
+                <li><a href="#" id="photo_gallery">Bildegalleri</a></li>
+                <li><a href="gjestebok.html" id="guestbook">Gjestebok</a></li>  
+            </ul>
         </div>
     </div>
-
-    <div class="footer">
-        <hr> <!-- Legg til en horisontal linje -->
-        <p>&copy; Copyright Utvikler Eirik Margido Moen</p>
+    
+    <div class="content">
+        <h1 id="welcome-message">Velkommen til Tennvika Hytte & Marina</h1>
+        <div class="text-content">
+            <p id="beautiful_island">Storfosna er en vakker øy som byr på fantastisk natur,</p>
+            <p id="sea_views">sjøutsikt og muligheter for fiske og friluftsliv. Med sin rolige atmosfære og sjarmerende omgivelser er det et ideelt reisemål</p>
+            <p id="tennvika">Tennvika Hytte & Marina tilbyr deg muligheten til å oppleve alt dette og mer. Våre hytter og fasiliteter gir deg den perfekte rammen for en minneverdig ferie.</p>
+            <p id="unforgettable_stay">Uansett om du er ute etter en avslappende helg ved sjøen eller et spennende eventyr på vannet, har vi alt du trenger for å gjøre oppholdet ditt uforglemmelig.</p>
+            <p id="experience_storfosna">Kom og opplev Storfosna med oss og la oss være vertskapene dine for din neste ferie!</p>
+        </div>
     </div>
+    
+<div class="footer">
+    <hr> <!-- Legg til en horisontal linje -->
+    <p id="copyright">&copy; Copyright Utvikler Eirik Margido Moen</p>
+</div>
+
+<script>
+// Funksjon for å endre språket basert på brukerens valg
+function changeLanguage() {
+    var selectedLanguage = document.getElementById("language-select").value;
+    fetch('translations/' + selectedLanguage + '/translations.json')
+        .then(response => response.json())
+        .then(data => {
+            // Endre teksten på nettsiden basert på den valgte oversettelsen
+            document.getElementById("welcome-message").innerText = data.welcome_message;
+            document.getElementById("beautiful_island").innerText = data.beautiful_island;
+            document.getElementById("sea_views").innerText = data.sea_views;
+            document.getElementById("tennvika").innerText = data.tennvika;
+            document.getElementById("unforgettable_stay").innerText = data.unforgettable_stay;
+            document.getElementById("experience_storfosna").innerText = data.experience_storfosna;
+            document.getElementById("home").innerText = data.home;
+            document.getElementById("about_us").innerText = data.about_us;
+            document.getElementById("storfosna").innerText = data.storfosna;
+            document.getElementById("bajas").innerText = data.bajas;
+            document.getElementById("photo_gallery").innerText = data.photo_gallery;
+            document.getElementById("guestbook").innerText = data.guestbook;
+        });
+}
+
+// Lytter på endringer i rullegardinmenyen
+document.getElementById("language-select").addEventListener("change", changeLanguage);
+
+// Initier språkvalget ved lasting av siden
+changeLanguage();
+</script>
+
 </body>
 </html>

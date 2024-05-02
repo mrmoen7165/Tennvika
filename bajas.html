@@ -6,6 +6,18 @@
     <title>Bajas - Tennvika Hytte & Marina</title>
     <link rel="stylesheet" href="bajas.css">
     <link rel="stylesheet" href="gallery.css">
+    <style>
+        /* CSS for å plassere språkmenyen til høyre */
+        .language-menu {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            z-index: 1; /* Plasser språkmenyen over bakgrunnsbildet */
+            background-color: rgba(255, 255, 255, 0.5); /* Gjennomsiktig bakgrunn for bedre lesbarhet */
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="main">
@@ -23,6 +35,7 @@
                     <li><a href="lyngmo.html" id="Lyngmo">Lyngmo</a></li>                   
                     <li><a href="#" id="photo_gallery">Bildegalleri</a></li>
                     <li><a href="gjestebok.html" id="guestbook">Gjestebok</a></li> 
+                    
                 </ul>
             </div>
         </div>
@@ -30,9 +43,10 @@
         <div class="content">
             <h1>Opplev Bajas</h1>
             <div class="text-content">
-                <p>Bajas-utleiehytten ligger helt nede ved havet, og tilbyr en unik mulighet til å nyte den fantastiske naturen og sjøutsikten.</p>
-                <p>Enten du er ute etter en avslappende helg ved sjøen eller et spennende eventyr på vannet, er Bajas det perfekte stedet for en minneverdig ferie.</p>
-                <p>Kom og opplev roen og sjarmen ved Bajas med oss!</p>
+                <p id="welcome_to_bajas_paragraph1">Bajas-utleiehytten ligger helt nede ved havet, og tilbyr en unik mulighet til å nyte den fantastiske naturen og sjøutsikten.</p>
+                <p id="welcome_to_bajas_paragraph2">Enten du er ute etter en avslappende helg ved sjøen eller et spennende eventyr på vannet, er Bajas det perfekte stedet for en minneverdig ferie.</p>
+                <p id="welcome_to_bajas_paragraph3">Kom og opplev roen og sjarmen ved Bajas med oss!</p>
+                
             </div>
         </div>
     </div>
@@ -95,6 +109,42 @@
         <p>&copy; Copyright Utvikler Eirik Margido Moen</p>
     </div>
 
+    <div class="language-menu">
+        <label for="language-select">Velg språk:</label>
+        <select id="language-select">
+            <option value="no">Norsk</option>
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+
     <script src="gallery.js"></script>
+    <script>
+       // Funksjon for å endre språket basert på brukerens valg
+       function changeLanguage() {
+            var selectedLanguage = document.getElementById("language-select").value;
+            fetch('translations/' + selectedLanguage + '/translations.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Endre teksten på nettsiden basert på den valgte oversettelsen
+                    document.getElementById("home").innerText = data.home;
+                    document.getElementById("about_us").innerText = data.about_us;
+                    document.getElementById("storfosna").innerText = data.storfosna;
+                    document.getElementById("bajas").innerText = data.bajas;
+                    document.getElementById("Lyngmo").innerText = data.Lyngmo;
+                    document.getElementById("photo_gallery").innerText = data.photo_gallery;
+                    document.getElementById("guestbook").innerText = data.guestbook;
+                    document.getElementById("welcome_to_bajas_paragraph1").innerText = data.welcome_to_bajas_paragraph1;
+                    document.getElementById("welcome_to_bajas_paragraph2").innerText = data.welcome_to_bajas_paragraph2;
+                    document.getElementById("welcome_to_bajas_paragraph3").innerText = data.welcome_to_bajas_paragraph3;
+                });
+        }
+
+        // Lytter på endringer i rullegardinmenyen
+        document.getElementById("language-select").addEventListener("change", changeLanguage);
+
+        // Initier språkvalget ved lasting av siden
+        changeLanguage();
+    </script>
 </body>
 </html>
